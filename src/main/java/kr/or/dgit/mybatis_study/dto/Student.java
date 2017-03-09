@@ -11,7 +11,6 @@ public class Student {
 	public Student() {}
 
 	public Student(int studentId, String name, String email, Date dob) {
-		super();
 		this.studentId = studentId;
 		this.name = name;
 		this.email = email;
