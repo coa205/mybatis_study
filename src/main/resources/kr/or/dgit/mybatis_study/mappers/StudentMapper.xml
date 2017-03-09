@@ -12,4 +12,9 @@
 		values(#{studentId}, #{name}, #{email}, #{dob})
 	</insert>
 	
+	<select id="selectStudentByNo" parameterType="int" resultType="Student">
+		select stud_id, name, email, dob from student 
+		where stud_id = #{studentId}
+	</select>
+	
 </mapper>

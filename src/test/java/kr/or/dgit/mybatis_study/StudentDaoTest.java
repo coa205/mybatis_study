@@ -30,11 +30,17 @@ public class StudentDaoTest {
 		Assert.assertNotNull(lists);
 	}
 	
-	@Test
+	/*@Test
 	public void testinsertStudentByAll() {
 		Student student = new Student(4, "홍길동", "hgd@test.co.kr", new Date());
 		int res = studentService.insertStudent(student);
 		Assert.assertEquals(1, res);
+	}*/
+	
+	@Test
+	public void testSelectStudentByNo() {
+		Student student = studentService.selectStudentByNo(1);
+		Assert.assertNotNull(student);
 	}
 
 }
