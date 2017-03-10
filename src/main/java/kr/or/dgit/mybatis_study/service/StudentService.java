@@ -4,7 +4,7 @@ import java.util.List;
 
 import org.apache.ibatis.session.SqlSession;
 
-import kr.or.dgit.mybatis_study.dao.StudentDao;
+import kr.or.dgit.mybatis_study.dao.StudentMapper;
 import kr.or.dgit.mybatis_study.dto.Student;
 import kr.or.dgit.mybatis_study.util.MybatisSqlSessionFactory;
 
@@ -19,14 +19,14 @@ public class StudentService {
 	
 	public List<Student> selectStudentByAll(){
 		SqlSession sqlSession = MybatisSqlSessionFactory.openSession();
-		StudentDao studentDao = sqlSession.getMapper(StudentDao.class);
+		StudentMapper studentDao = sqlSession.getMapper(StudentMapper.class);
 		//sqlSession.close();
 		return studentDao.selectStudentByAll();
 	}
 	
 	public int insertStudent(Student student){
 		SqlSession sqlSession = MybatisSqlSessionFactory.openSession();
-		StudentDao studentDao = sqlSession.getMapper(StudentDao.class);
+		StudentMapper studentDao = sqlSession.getMapper(StudentMapper.class);
 		int res = studentDao.insertStudent(student);
 		sqlSession.commit();
 		return res;
@@ -35,7 +35,7 @@ public class StudentService {
 	public int insertSudentWithPhone(Student student){
 		int res = -1;
 		try(SqlSession sqlSession = MybatisSqlSessionFactory.openSession();){
-			StudentDao studentDao = sqlSession.getMapper(StudentDao.class);
+			StudentMapper studentDao = sqlSession.getMapper(StudentMapper.class);
 			res = studentDao.insertSudentWithPhone(student);
 			sqlSession.commit();
 		}catch (Exception e) {
@@ -44,16 +44,16 @@ public class StudentService {
 		return res;
 	}
 	
-	/*public Student deleteStudentByNo(Student student){
+	public int deleteStudentByNo(Student student){
 		SqlSession sqlSession = MybatisSqlSessionFactory.openSession();
-		StudentDao studentDao = sqlSession.getMapper(StudentDao.class);
+		StudentMapper studentDao = sqlSession.getMapper(StudentMapper.class);
 		return studentDao.deleteStudentByNo(student);
-	}*/
+	}
 	
 	//selectStudentByNo
 	public Student selectStudentByNo(int studNo){
 		SqlSession sqlSession = MybatisSqlSessionFactory.openSession();
-		StudentDao studentDao = sqlSession.getMapper(StudentDao.class);
+		StudentMapper studentDao = sqlSession.getMapper(StudentMapper.class);
 		return studentDao.selectStudentByNo(studNo);
 		
 	}
