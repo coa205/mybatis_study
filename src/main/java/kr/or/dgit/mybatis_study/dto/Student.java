@@ -7,8 +7,29 @@ public class Student {
 	private String name;
 	private String email;
 	private Date dob;
+	private PhoneNumber phone;
 	
 	public Student() {}
+	
+	public PhoneNumber getPhone() {
+		return phone;
+	}
+
+	public void setPhone(PhoneNumber phone) {
+		this.phone = phone;
+	}
+	
+	public Student(int studentId) {
+		this.studentId = studentId;
+	}
+
+	public Student(int studentId, String name, String email, Date dob, PhoneNumber phone) {
+		this.studentId = studentId;
+		this.name = name;
+		this.email = email;
+		this.dob = dob;
+		this.phone = phone;
+	}
 
 	public Student(int studentId, String name, String email, Date dob) {
 		this.studentId = studentId;
@@ -51,6 +72,6 @@ public class Student {
 	
 	@Override
 	public String toString() {
-		return String.format("%s, %s, %s, %s", studentId, name, email, dob);
+		return String.format("%s, %s, %s, %s, %s", studentId, name, email, dob, phone);
 	}
 }

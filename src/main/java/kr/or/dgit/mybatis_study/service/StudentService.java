@@ -32,6 +32,24 @@ public class StudentService {
 		return res;
 	}
 	
+	public int insertSudentWithPhone(Student student){
+		int res = -1;
+		try(SqlSession sqlSession = MybatisSqlSessionFactory.openSession();){
+			StudentDao studentDao = sqlSession.getMapper(StudentDao.class);
+			res = studentDao.insertSudentWithPhone(student);
+			sqlSession.commit();
+		}catch (Exception e) {
+			e.printStackTrace();
+		}
+		return res;
+	}
+	
+	/*public Student deleteStudentByNo(Student student){
+		SqlSession sqlSession = MybatisSqlSessionFactory.openSession();
+		StudentDao studentDao = sqlSession.getMapper(StudentDao.class);
+		return studentDao.deleteStudentByNo(student);
+	}*/
+	
 	//selectStudentByNo
 	public Student selectStudentByNo(int studNo){
 		SqlSession sqlSession = MybatisSqlSessionFactory.openSession();

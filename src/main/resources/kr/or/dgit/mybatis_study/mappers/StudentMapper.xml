@@ -17,4 +17,11 @@
 		where stud_id = #{studentId}
 	</select>
 	
+	<delete id=""></delete>
+	
+	<insert id="insertSudentWithPhone" parameterType="Student">
+		insert into student (stud_id, name, email, dob, phone)
+		values(#{studentId}, #{name}, #{email}, #{dob}, #{phone})
+	</insert>
+	
 </mapper>

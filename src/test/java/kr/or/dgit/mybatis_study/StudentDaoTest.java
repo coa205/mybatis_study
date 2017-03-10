@@ -1,13 +1,13 @@
 package kr.or.dgit.mybatis_study;
 
 import java.util.Date;
-import java.util.List;
 
 import org.junit.AfterClass;
 import org.junit.Assert;
 import org.junit.BeforeClass;
 import org.junit.Test;
 
+import kr.or.dgit.mybatis_study.dto.PhoneNumber;
 import kr.or.dgit.mybatis_study.dto.Student;
 import kr.or.dgit.mybatis_study.service.StudentService;
 
@@ -24,11 +24,11 @@ public class StudentDaoTest {
 		studentService = null;
 	}
 
-	@Test
+	/*@Test
 	public void testSelectStudentByAll() {
 		List<Student> lists = studentService.selectStudentByAll();
 		Assert.assertNotNull(lists);
-	}
+	}*/
 	
 	/*@Test
 	public void testinsertStudentByAll() {
@@ -37,10 +37,23 @@ public class StudentDaoTest {
 		Assert.assertEquals(1, res);
 	}*/
 	
+	/*public void testdeleteStudentByNo() {
+		Student student = new Student(2);
+		int res = studentService.deleteStudentByNo(student);
+		Assert.assertEquals(1, res);
+	}*/
+	
 	@Test
+	public void testinsertStudentWithPhone() {
+		Student student = new Student(5, "홍자바", "hjv@test.co.kr", new Date(), new PhoneNumber("010-1234-1234"));
+		int res = studentService.insertSudentWithPhone(student);
+		Assert.assertEquals(1, res);
+	}
+	
+	/*@Test
 	public void testSelectStudentByNo() {
 		Student student = studentService.selectStudentByNo(1);
 		Assert.assertNotNull(student);
-	}
+	}*/
 
 }
