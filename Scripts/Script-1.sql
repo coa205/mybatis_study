@@ -85,5 +85,10 @@ INSERT INTO COURSE_ENROLLMENT (COURSE_ID,STUD_ID) VALUES
  (1,1),
  (1,2),
  
- 
+select * from students;
 select stud_id, name, email, phone, dob from students where stud_id = 1;
+delete from students where STUD_ID = 6;
+
+select STUD_ID, name, EMAIL, PHONE, DOB, a.ADDR_ID, street, city, state, zip, country
+from students s left join addresses a on s.ADDR_ID = a.ADDR_ID
+where STUD_ID = 1;
