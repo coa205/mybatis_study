@@ -21,6 +21,7 @@ CREATE TABLE STUDENTS (
   CONSTRAINT FK_STUDENTS_ADDR FOREIGN KEY (ADDR_ID)  REFERENCES ADDRESSES (ADDR_ID)
 );
 
+ALTER TABLE mybatis_dev.students ADD gender varchar(10) NULL ;
 
 CREATE TABLE TUTORS (
   TUTOR_ID INT(11) NOT NULL AUTO_INCREMENT,
@@ -34,6 +35,8 @@ CREATE TABLE TUTORS (
   PRIMARY KEY (TUTOR_ID),
   CONSTRAINT FK_TUTORS_ADDR FOREIGN KEY (ADDR_ID)   REFERENCES ADDRESSES (ADDR_ID)  
 );
+
+ALTER TABLE mybatis_dev.tutors ADD gender varchar(10) NULL ;
 
 CREATE TABLE COURSES (
   COURSE_ID INT(11) NOT NULL AUTO_INCREMENT,
@@ -92,3 +95,25 @@ delete from students where STUD_ID = 6;
 select STUD_ID, name, EMAIL, PHONE, DOB, a.ADDR_ID, street, city, state, zip, country
 from students s left join addresses a on s.ADDR_ID = a.ADDR_ID
 where STUD_ID = 1;
+
+select * from courses
+where TUTOR_ID = 1 
+and name like '%java%' 
+and START_DATE >= '2013-03-01'
+and END_DATE <= '2013-05-01';
+
+select *
+from courses
+where TUTOR_ID = 1 or TUTOR_ID = 2;
+
+select *
+from courses
+where TUTOR_ID in (1,2);
+
+create table user_pics(
+	id int(11) not null auto_increment,
+	name varchar(50) default null,
+	pic blob,
+	bio longtext,
+	primary key(id)
+);
