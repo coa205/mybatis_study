@@ -8,6 +8,8 @@ CREATE TABLE ADDRESSES (
   PRIMARY KEY (ADDR_ID)
 );
 
+select addr_id, street, city, state, zip, country from addresses where STATE = 'CA' and zip = '92110' ;
+
 CREATE TABLE STUDENTS (
   STUD_ID INT(11) NOT NULL AUTO_INCREMENT,
   NAME VARCHAR(50) NOT NULL,
